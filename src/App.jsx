@@ -1,9 +1,7 @@
-
 function App() {
-
   return (
-   <p>Recipes</p> 
+    <h1>Recipes</h1>
   )
 }
 
-export default App
+export default App;
