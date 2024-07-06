@@ -17,7 +17,7 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <div className='flex justify-center gap-10 flex-wrap'>
       {
         recipes.map((recipe) => {
           return (
