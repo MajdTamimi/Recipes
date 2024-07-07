@@ -1,7 +1,13 @@
 import { FaArrowRight } from "react-icons/fa6";
 import { IoIosTimer } from "react-icons/io";
+import { useNavigate } from 'react-router-dom'
+
 
 const Card = ({ recipe }) => {
+    const nav = useNavigate()
+    const handleLogout = () => {
+        nav("/details")
+      }
     return (
         <div className="w-1/4 rounded-lg shadow-2xl relative min-h-100" >
             <img src={recipe.image} alt="" className="h-72 rounded-lg w-full" />
@@ -19,7 +25,7 @@ const Card = ({ recipe }) => {
                     <IoIosTimer className='w-5 h-6' />
                     <span>{recipe.cookTimeMinutes + recipe.prepTimeMinutes} min</span>
                 </div>
-                <button className="bg-[rgb(228,89,0)] text-white font-semibold text-base py-2 px-4 rounded-xl inline-flex items-center absolute right-4 bottom-4 focus:outline-none hover:bg-[#C24000] ">
+                <button onClick={handleLogout} className="bg-[rgb(228,89,0)] text-white font-semibold text-base py-2 px-4 rounded-xl inline-flex items-center absolute right-4 bottom-4 focus:outline-none hover:bg-[#C24000] ">
                     <span className="mr-2">more details</span>
                     <FaArrowRight />
                 </button>
