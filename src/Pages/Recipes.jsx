@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-
 import Card from '../components/Card';
 
 const Recipes = () => {
-    
+
     const [recipes, setRecipes] = useState([]);
     const BASE_URL = 'https://dummyjson.com'
 
@@ -27,8 +26,6 @@ const Recipes = () => {
                     })
                 }
             </div>
-
-
     )
 }
 

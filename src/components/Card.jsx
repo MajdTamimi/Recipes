@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom'
 const Card = ({ recipe }) => {
     const nav = useNavigate()
     const handleLogout = () => {
-        nav("/details")
-      }
+        nav(`/recipes/details/${recipe.id}`)
+    }
     return (
         <div className="w-1/4 rounded-lg shadow-2xl relative min-h-100" >
             <img src={recipe.image} alt="" className="h-72 rounded-lg w-full" />
