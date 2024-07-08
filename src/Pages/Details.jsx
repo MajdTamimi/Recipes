@@ -19,7 +19,7 @@ const Details = () => {
     }, [])
 
     return (
-        <section className=" bg-white  dark:bg-gray-900 antialiased">
+        <section className=" bg-white  dark:bg-gray-900 antialiased ptop">
             <div className="max-w-screen-xl mx-10">
                 <div className="lg:grid lg:grid-cols-2 lg:gap-0 xl:gap-0">
                     <img className="w-11/12 dark:hidden rounded-xl br " src={data.image} alt="" />

@@ -17,7 +17,7 @@ const Recipes = () => {
             })
     }, [])
     return (
-            <div className='flex justify-center gap-10 flex-wrap'>
+            <div className='flex justify-center gap-10 flex-wrap ptop'>
                 {
                     recipes.map((recipe) => {
                         return (
