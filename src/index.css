@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.br{
+.br {
     border: 1px solid gray;
 }
 
-.ptop{
+.ptop {
     padding-top: 100px;
 }
