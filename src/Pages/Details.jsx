@@ -22,7 +22,7 @@ const Details = () => {
         <section className=" bg-white  dark:bg-gray-900 antialiased ptop">
             <div className="max-w-screen-xl mx-10">
                 <div className="lg:grid lg:grid-cols-2 lg:gap-0 xl:gap-0">
-                    <img className="w-11/12 dark:hidden rounded-xl br " src={data.image} alt="" />
+                    <img className="w-11/12 dark:hidden  rounded-xl shadow-zinc-800 shadow-2xl br " src={data.image} alt="" />
 
                     <div className="mt-6 sm:mt-8 lg:mt-0">
                         <h1 className="font-bold text-gray-900 sm:text-5xl dark:text-white">{data.name}</h1>
