@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 
 const Home = () => {
   const navigate = useNavigate()
-  const handlRec = () => {
+  const handleShowRecipes = () => {
     navigate("/recipes")
   }
   return (
@@ -20,7 +20,7 @@ const Home = () => {
             Whether you're a beginner or a seasoned chef, our collection offers something for everyone. Get inspired, try new
             dishes, and make every meal a memorable experience. Your next favorite recipe is just a click away!
           </p>
-          <button onClick={handlRec} className=" px-6 py-3 text-white font-semibold transition duration-300 bg-[rgb(228,89,0)] text-lg text-base  rounded-xl inline-flex items-center focus:outline-none hover:bg-[#C24000] ">
+          <button onClick={handleShowRecipes} className=" px-6 py-3 text-white font-semibold transition duration-300 bg-[rgb(228,89,0)] text-lg text-base  rounded-xl inline-flex items-center focus:outline-none hover:bg-[#C24000] ">
             <span className="mr-2">Discover recipes</span>
             <FaArrowRight />
           </button>
