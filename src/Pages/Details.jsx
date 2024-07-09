@@ -145,7 +145,7 @@ const Details = () => {
                 <ol className="max-w-md space-y-1 text-gray-900 list-decimal dark:text-gray-400">
                   {
                     data.instructions?.map((instruction, index) => {
-                      return <li key={index} className='tag'>{instruction}</li>
+                      return <li key={index}>{instruction}</li>
                     })
                   }
                 </ol>

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import background from "../assets/images/Com.png"
 import { FaArrowRight } from "react-icons/fa6";
 import Navbar from "../components/Navbar";
+
 const Home = () => {
   const navigate = useNavigate()
   const handlRec = () => {

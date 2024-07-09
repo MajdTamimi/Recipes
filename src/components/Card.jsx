@@ -2,7 +2,6 @@ import { FaArrowRight } from "react-icons/fa6";
 import { IoIosTimer } from "react-icons/io";
 import { useNavigate } from 'react-router-dom'
 
-
 const Card = ({ recipe }) => {
   const nav = useNavigate()
   const handlDetails = () => {
