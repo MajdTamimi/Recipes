@@ -4,7 +4,7 @@ import { BiUser } from "react-icons/bi"
 import { AiOutlineUnlock } from "react-icons/ai"
 import { useState } from "react"
 
-const Login = () => {
+const Login = ({ setUserIn }) => {
 
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
@@ -19,12 +19,19 @@ const Login = () => {
                 password: password,
             })
         })
-            .then(res => res.json())
+            .then(res => {
+              if (!res.ok) {
+                throw new Error('Login failed! Check your credentials.');
+              }
+              return res.json();
+            })
             .then(data => {
                 localStorage.setItem('token', data.token);
                 console.log("login successful", data.token);
+                setUserIn(true);
                 navigate("/")
-            });
+            })
+
     }
     const handleSubmit = (e) => {
         e.preventDefault();
