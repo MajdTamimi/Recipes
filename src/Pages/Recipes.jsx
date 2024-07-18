@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import Card from '../components/Card';
-import Navbar from '../components/Navbar';
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -24,8 +23,6 @@ const Recipes = () => {
   }
 
   return (
-    <>
-      <Navbar />
       <div className='flex justify-center gap-10 flex-wrap ptop'>
         {
           recipes.map((recipe) => {
@@ -35,7 +32,6 @@ const Recipes = () => {
           })
         }
       </div>
-    </>
   )
 }
 

@@ -3,13 +3,24 @@ import logo from "../assets/images/LOGO.png"
 import { IoSettingsSharp } from "react-icons/io5";
 import { PiSignOutBold } from "react-icons/pi";
 import { RiProfileFill } from "react-icons/ri";
-const Navbar = () => {
+import { useNavigate } from "react-router-dom";
+const Navbar = ({setUserIn}) => {
 
-  const user = JSON.parse(localStorage.getItem('user'))
+  const user = JSON.parse(localStorage.getItem("user"))
+  const navigate = useNavigate();
 
   const [isOpen, setIsOpen] = useState(false)
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    navigate("/login")
+    setUserIn(false)
+    console.log("fkdhgjdgkdlhdjk");
+    
   };
   return (
     <nav className="bg-[#151C2A] z-20 top-0 start-0 fixed border-gray-200 dark:bg-gray-900 px-5 w-full ">
@@ -110,12 +121,12 @@ const Navbar = () => {
             </ul>
             <div className="py-2 flex items-center">
             <PiSignOutBold className="ml-2" />
-              <a
-                href="#"
+              <button
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                onClick={handleLogout}
               >
                 Sign out
-              </a>
+              </button>
             </div>
           </div>
         </div>

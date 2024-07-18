@@ -22,7 +22,7 @@ const Login = ({ setUserIn }) => {
         })
             .then(res => {
               if (!res.ok) {
-                throw new Error("Login failed!")
+                throw new Error("Login failed! Check your username or password")
               }
               return res.json()
             })

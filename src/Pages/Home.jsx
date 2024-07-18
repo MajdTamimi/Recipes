@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import background from "../assets/images/Com.png"
 import { FaArrowRight } from "react-icons/fa6";
-import Navbar from "../components/Navbar";
 
 const Home = () => {
   const navigate = useNavigate()
@@ -10,7 +9,6 @@ const Home = () => {
   }
   return (
     <>
-      <Navbar />
       <div className="relative w-full h-screen bg-cover bg-center" style={{ backgroundImage: `url(${background})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white mt-10">
