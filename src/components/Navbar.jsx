@@ -1,12 +1,23 @@
+import { useState } from "react";
 import logo from "../assets/images/LOGO.png"
+import { IoSettingsSharp } from "react-icons/io5";
+import { PiSignOutBold } from "react-icons/pi";
+import { RiProfileFill } from "react-icons/ri";
 const Navbar = () => {
+
+  const user = JSON.parse(localStorage.getItem('user'))
+
+  const [isOpen, setIsOpen] = useState(false)
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
   return (
-    <nav className="bg-[#151C2A] z-20 top-0 start-0 fixed border-gray-200 dark:bg-gray-900 px-5 w-full">
-      <div className="max-w-screen-xl flex flex-wrap items-center mx-20 py-2 ">
+    <nav className="bg-[#151C2A] z-20 top-0 start-0 fixed border-gray-200 dark:bg-gray-900 px-5 w-full ">
+      <div className="max-w-screen-xl flex flex-wrap items-center mx-20 py-2">
         <a href="https://flowbite.com/" className="flex items-center w-50 rtl:space-x-reverse">
           <img src={logo} className="max-h-40 w-30 -ml-20 mr-15" alt="Flowbite Logo" />
         </a>
-        <div className="flex md:order-2 ml-80">
+        <div className="flex md:order-2 ml-72">
           <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" className="  md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
             <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
@@ -49,6 +60,64 @@ const Navbar = () => {
               <a href="/recipes" className="block py-2 px-3 text-lg text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#E45900] md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Recipes</a>
             </li>
           </ul>
+        </div>
+        <div className=" absolute right-9   ">
+          <button
+            type="button"
+            className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            id="user-menu-button"
+            aria-expanded="false"
+            onClick={toggleDropdown}
+          >
+            <span className="sr-only">Open user menu</span>
+            <img
+              className="w-10 h-10 rounded-full"
+              src={user.image}
+              alt="user photo"
+            />
+          </button>
+
+          <div
+            id="user-dropdown"
+            className={`z-10 ${isOpen ? '' : 'hidden'} bg-white divide-y divide-gray-200 rounded-lg shadow-xl  dark:bg-gray-700 dark:divide-gray-600 border  absolute right-0.5 mt-2.5`}
+          >
+            <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+              <div>{user.firstName} {user.lastName}</div>
+              <div className="font-medium truncate">{user.email}</div>
+            </div>
+            <ul
+              className="py-2 text-sm text-gray-700 dark:text-gray-200"
+              aria-labelledby="user-menu-button"
+            >
+              <li className="flex items-center">
+              <RiProfileFill className="ml-2"/>
+                <a
+                  href="#"
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  Profile
+                </a>
+              </li>
+              <li className="flex items-center ">
+              <IoSettingsSharp className="ml-2"/>
+                <a
+                  href="#"
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  Settings
+                </a>
+              </li>
+            </ul>
+            <div className="py-2 flex items-center">
+            <PiSignOutBold className="ml-2" />
+              <a
+                href="#"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+              >
+                Sign out
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </nav>

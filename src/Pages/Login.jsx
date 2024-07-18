@@ -28,7 +28,7 @@ const Login = ({ setUserIn }) => {
             })
             .then(data => {
                 localStorage.setItem('token', data.token);
-                localStorage.setItem('user', JSON.stringify(data.user));
+                localStorage.setItem('user', JSON.stringify(data));
                 setUserIn(true);
                 toast.success("Login successful!", {
                     theme: "colored"
