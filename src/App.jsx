@@ -6,6 +6,8 @@ import NotFound from "./Pages/NotFound";
 import Login from "./Pages/Login";
 import ProtectedRoutes from "./utils/ProtectedRoutes";
 import { useEffect, useState } from "react";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   
@@ -19,6 +21,7 @@ function App() {
 
   return (
     <div>
+      <ToastContainer position="top-center" theme="colored"/>
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login setUserIn={setUserIn} />} />

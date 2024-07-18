@@ -3,6 +3,7 @@ import background from "../assets/images/Com.png"
 import { BiUser } from "react-icons/bi"
 import { AiOutlineUnlock } from "react-icons/ai"
 import { useState } from "react"
+import { toast } from "react-toastify"
 
 const Login = ({ setUserIn }) => {
 
@@ -21,22 +22,31 @@ const Login = ({ setUserIn }) => {
         })
             .then(res => {
               if (!res.ok) {
-                throw new Error('Login failed! Check your credentials.');
+                throw new Error("Login failed!")
               }
-              return res.json();
+              return res.json()
             })
             .then(data => {
                 localStorage.setItem('token', data.token);
-                console.log("login successful", data.token);
+                localStorage.setItem('user', JSON.stringify(data.user));
                 setUserIn(true);
+                toast.success("Login successful!", {
+                    theme: "colored"
+                })
                 navigate("/")
             })
+            .catch(err => {
+                toast.error(err.message, {
+                    theme: "colored"
+                })
+                setUserIn(false)
+              })
 
     }
     const handleSubmit = (e) => {
-        e.preventDefault();
-        login();
-    };
+        e.preventDefault()
+        login()
+    }
     
     return (
         <>
