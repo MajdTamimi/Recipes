@@ -19,7 +19,6 @@ const Navbar = ({ setUserIn }) => {
     localStorage.removeItem("token")
     navigate("/login")
     setUserIn(false)
-    console.log("fkdhgjdgkdlhdjk")
   }
 
   return (
