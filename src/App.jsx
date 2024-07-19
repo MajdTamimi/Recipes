@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "./components/Navbar";
+import Register from "./Pages/Register";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
         {userIn && <Navbar setUserIn={setUserIn} />}
         <Routes>
           <Route path="/login" element={<Login setUserIn={setUserIn} />} />
+          <Route path="/register" element={<Register />} />
           <Route element={<ProtectedRoutes userIn={userIn} />}>
             <Route path="/" element={<Home />} />
             <Route path="/recipes" element={<Recipes />} />
