@@ -1,25 +1,20 @@
-import { BrowserRouter, Routes, Route, } from "react-router-dom";
-import Details from "./Pages/Details";
-import Home from "./Pages/Home";
-import Recipes from "./Pages/Recipes";
-import NotFound from "./Pages/NotFound";
-import Login from "./Pages/Login";
-import ProtectedRoutes from "./utils/ProtectedRoutes";
-import { useEffect, useState } from "react";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Navbar from "./components/Navbar";
-import Register from "./Pages/Register";
+import ProtectedRoutes from "./utils/ProtectedRoutes"
+import "react-toastify/dist/ReactToastify.css"
+import Navbar from "./components/Navbar"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { ToastContainer } from "react-toastify"
+import { Login, Register, Home, Recipes, Details, NotFound } from "./pages/index"
 
 function App() {
+  const [userIn, setUserIn] = useState(localStorage.getItem("token") || false)
 
-  const [userIn, setUserIn] = useState(localStorage.getItem("token") || false);
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token")
     if (token) {
-      setUserIn(true);
+      setUserIn(true)
     }
-  }, []);
+  }, [])
 
   return (
     <div>
@@ -41,4 +36,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

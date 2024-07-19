@@ -1,37 +1,25 @@
-import { useState, useEffect } from 'react'
-import Card from '../components/Card';
+import Card from "../components/Card"
+import { useFetchRecipes } from "../hooks/useFetchRecipes.hook"
 
 const Recipes = () => {
-  const [recipes, setRecipes] = useState([]);
-  const BASE_URL = 'https://dummyjson.com'
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetch(`${BASE_URL}/recipes`,
-      {
-        method: "GET"
-      })
-      .then(res => res.json())
-      .then(data => {
-        setRecipes(data.recipes)
-        setLoading(false)
-      })
-  }, [])
+  const { recipes, loading, error } = useFetchRecipes()
 
   if (loading) {
     return <span className="loader"></span>
   }
 
+  if (error) {
+    return <span className="absolute top-1/2">Error Fetching Recipes</span>
+  }
+
   return (
-      <div className='flex justify-center gap-10 flex-wrap ptop'>
-        {
-          recipes.map((recipe) => {
-            return (
-              <Card key={recipe.id} recipe={recipe} />
-            )
-          })
-        }
-      </div>
+    <div className="flex justify-center gap-10 flex-wrap ptop">
+      {recipes.map((recipe) => {
+        return (
+          <Card key={recipe.id} recipe={recipe} />
+        )
+      })}
+    </div>
   )
 }
 
