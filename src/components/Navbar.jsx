@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { IoSettingsSharp } from "react-icons/io5"
 import { PiSignOutBold } from "react-icons/pi"
 import { RiProfileFill } from "react-icons/ri"
+import { toast } from "react-toastify"
 
 const Navbar = ({ setUserIn }) => {
   const user = JSON.parse(localStorage.getItem("user"))
@@ -19,6 +20,9 @@ const Navbar = ({ setUserIn }) => {
     localStorage.removeItem("token")
     navigate("/login")
     setUserIn(false)
+    toast.success("Logout successful!", {
+      theme: "colored"
+    })
   }
 
   return (
@@ -78,8 +82,8 @@ const Navbar = ({ setUserIn }) => {
           </button>
           <div id="user-dropdown" className={`z-10 ${isOpen ? '' : 'hidden'} bg-white divide-y divide-gray-200 rounded-lg shadow-xl dark:bg-gray-700 dark:divide-gray-600 border absolute right-0.5 mt-2.5`}>
             <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-              <div>{user.firstName} {user.lastName}</div>
-              <div className="font-medium truncate">{user.email}</div>
+              <div className="font-medium truncate">{user.firstName} {user.lastName}</div>
+              <div>{user.email}</div>
             </div>
             <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="user-menu-button">
               <li className="flex items-center">
@@ -93,7 +97,7 @@ const Navbar = ({ setUserIn }) => {
             </ul>
             <div className="py-2 flex items-center">
               <PiSignOutBold className="ml-2" />
-              <button className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" onClick={handleLogout}>Sign out</button>
+              <button className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" onClick={handleLogout}>Logout</button>
             </div>
           </div>
         </div>

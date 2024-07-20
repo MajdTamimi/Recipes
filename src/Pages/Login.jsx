@@ -18,7 +18,7 @@ const Login = ({ setUserIn }) => {
 
   if (error) {
     return (
-      <div className="">
+      <>
         <div className="flex items-center w-full max-w-xs p-4 space-x-4 rtl:space-x-reverse text-gray-950 bg-white divide-x-2 rtl:divide-x-reverse divide-gray-200 rounded-lg shadow-xl dark:text-gray-400 dark:divide-gray-700 dark:bg-gray-800 absolute top-40 left-[600px] border-2 border-gray-200" role="alert">
           <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
             <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -31,8 +31,7 @@ const Login = ({ setUserIn }) => {
           <FaArrowLeft className="mr-2" />
           Back to Homepage
         </a>
-
-      </div>
+      </>
     )
   }
 
@@ -62,7 +61,7 @@ const Login = ({ setUserIn }) => {
             </div>
             <button type="submit" className="w-full mb-4 text-[18px] mt-6 rounded-full bg-white font-bold text-xl text-[#E45900] hover:bg-[#E45900] hover:text-white py-2 transition-colors duration-300">Login</button>
             <div>
-              <span className="m-4">New Here?<Link className="text-[#ff6302] ml-2" to="/register">Create an Account</Link></span>
+              <span className="mt-4">New Here?<Link className="text-[#E45900] ml-2" to="/register">Create an Account</Link></span>
             </div>
           </form>
         </div>

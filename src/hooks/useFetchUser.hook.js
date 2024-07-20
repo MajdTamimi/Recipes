@@ -29,5 +29,5 @@ export const useFetchUser = ({ userName, password, setUserIn }) => {
     }
   }
 
-  return { fetchUser, setUserIn, error }
+  return { fetchUser, error }
 }

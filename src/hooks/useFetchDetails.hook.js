@@ -3,6 +3,7 @@ import { getDetails } from "../services/getDetails"
 
 export const useFetchDetails = ({ id }) => {
   const [data, setData] = useState({})
+  const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
   useEffect(() => {
@@ -10,13 +11,15 @@ export const useFetchDetails = ({ id }) => {
       try {
         const data = await getDetails(id)
         setData(data)
-      }catch {
+      } catch {
         setError(true)
+      } finally {
+        setLoading(false)
       }
     }
 
     fetchDetails()
   }, [])
 
-  return { data, error }
+  return { data, loading, error }
 }
